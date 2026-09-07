@@ -87,7 +87,7 @@ const About = () => {
                   I specialize in architecting end-to-end full-stack applications with high-throughput backend services and modern AI workflows. From orchestrating multi-agent DAGs with persistent memory using LangGraph and FastAPI to engineering real-time collaborative canvases with Redis Pub/Sub deduplication and WebSockets, I love solving complex engineering challenges.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  With a solid foundation in Data Structures & Algorithms (700+ problems solved across LeetCode, CodeChef, and GeeksforGeeks, and peak LeetCode 1687) and production internship experience at Orion Eduverse, I prioritize writing clean, scalable, and type-safe code with automated CI/CD and containerization.
+                  With a solid foundation in Data Structures & Algorithms (700+ problems solved across LeetCode, CodeChef, and GeeksforGeeks, and peak LeetCode 1687) and production internship experience at Sirhaana (Capsules AI) and Orion Eduverse, I prioritize writing clean, scalable, and type-safe code with automated CI/CD and containerization.
                 </p>
               </div>
             </div>

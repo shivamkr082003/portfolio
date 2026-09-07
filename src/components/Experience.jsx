@@ -4,6 +4,19 @@ import { Briefcase, GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle2
 const Experience = () => {
   const experiences = [
     {
+      company: "Sirhaana (Capsules AI)",
+      role: "Technical Intern (AI Systems)",
+      period: "Aug 2026 – Present",
+      location: "Remote",
+      type: "Internship",
+      highlights: [
+        "Architected an end-to-end Multimodal RAG pipeline matching room photos with pre-embedded inventory items via vector similarity search, enabling sub-second retrieval.",
+        "Implemented incremental vector upserts in the vector database for dynamic catalog updates, eliminating full re-indexing overhead and supporting scale.",
+        "Engineered a stateful conversational GenAI chatbot using LangGraph to orchestrate multi-step LLM reasoning over retrieved visual contexts and item metadata.",
+      ],
+      technologies: ["LangGraph", "RAG", "Vector Search", "Python", "FastAPI", "Multimodal AI"],
+    },
+    {
       company: "Orion Eduverse",
       role: "Full Stack Developer Intern",
       period: "Feb 2026 – Apr 2026",
@@ -63,6 +76,10 @@ const Experience = () => {
     {
       name: "Full-Stack Web Developer Intern",
       issuer: "Orion Eduverse (Feb 2026 – Apr 2026)",
+    },
+    {
+      name: "Technical Intern (AI Systems)",
+      issuer: "Sirhaana (Capsules AI) (Aug 2026 – Present)",
     },
   ];
 
