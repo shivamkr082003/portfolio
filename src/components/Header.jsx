@@ -5,14 +5,15 @@ import { ThemeContext } from "../context/ThemeContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { theme, setTheme } = useContext(ThemeContext);
-  //   const toggleTheme = () => {
-  //     setTheme(theme === "light" ? "dark" : "light");
-  //   };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -42,13 +43,30 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
+      <div className="h-0.5 w-full bg-transparent">
+        <div
+          className="h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-[width] duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div
             onClick={() => scrollToSection("#home")}
-            className="text-2xl font-bold text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2.5 cursor-pointer group"
           >
-            Portfolio
+            <span
+              style={{ fontFamily: "var(--font-display)" }}
+              className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white font-bold text-sm shadow-md group-hover:scale-105 transition-transform"
+            >
+              SK
+            </span>
+            <span
+              style={{ fontFamily: "var(--font-display)" }}
+              className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors hidden sm:block"
+            >
+              Shivam Kumar
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -57,9 +75,10 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300" />
               </button>
             ))}
             <button

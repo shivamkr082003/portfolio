@@ -7,7 +7,7 @@ import {
   DownloadCloud,
 } from "lucide-react";
 
-const RESUME_URL = "https://drive.google.com/file/d/1BqfZJJYHGugoJBEFBHYbIJsdtTvKNpXi/view?usp=drivesdk";
+const RESUME_URL = "https://drive.google.com/file/d/19ny5mWHnDgJdUXM0kY9wgr8PXt7pRrvu/view?usp=drivesdk";
 const NAME = "Shivam Kumar";
 const TYPING_SPEED = 120;
 const ERASING_SPEED = 60;
@@ -55,18 +55,31 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
+      <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black_40%,transparent_100%)]"></div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-emerald-300 dark:bg-emerald-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-40 dark:opacity-30 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-40 dark:opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-emerald-300 dark:bg-emerald-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 dark:opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center">
           <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-gray-200 dark:border-slate-700 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Actively seeking Software Engineering roles
+              </span>
+            </div>
+            <h1
+              style={{ fontFamily: "var(--font-display)" }}
+              className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight"
+            >
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent min-w-[1ch]">
                 {displayed}
@@ -94,29 +107,29 @@ const Hero = () => {
                   .querySelector("#projects")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold shadow-lg shadow-blue-600/20 hover:shadow-xl hover:shadow-purple-600/30 hover:-translate-y-0.5 transition-all duration-300"
             >
               View My Work
             </button>
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-white rounded-lg font-semibold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group"
+            >
+              <DownloadCloud className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-y-0.5 transition-transform duration-200" />
+              Resume
+            </a>
             <button
               onClick={() =>
                 document
                   .querySelector("#contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="px-8 py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all duration-300"
+              className="px-8 py-4 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
             >
-              Contact Me
+              Contact Me →
             </button>
-            <a
-              href={RESUME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
-            >
-              <DownloadCloud className="w-6 h-6 text-white group-hover:text-yellow-300 transition-colors duration-200" />
-              View Resume
-            </a>
           </div>
 
           <div className="flex items-center justify-center space-x-6 mb-16 animate-fade-in-up animation-delay-600">

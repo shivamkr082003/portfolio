@@ -10,6 +10,8 @@ import {
   CheckCircle,
   Loader2,
 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -121,19 +123,22 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-slate-800">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Let's Connect
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Actively seeking Software Engineering, Full-Stack, and AI Engineering roles. Feel free to reach out to discuss opportunities or collaborate on innovative projects.
-          </p>
-        </div>
+        <SectionHeading
+          index="04"
+          title="Contact"
+          description={{
+            heading: "Let's Connect",
+            body: "Actively seeking Software Engineering, Full-Stack, and AI Engineering roles. Feel free to reach out to discuss opportunities or collaborate on innovative projects.",
+          }}
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <Reveal>
+            <h3
+              style={{ fontFamily: "var(--font-display)" }}
+              className="text-2xl font-bold text-gray-900 dark:text-white mb-8"
+            >
               Get in Touch
             </h3>
 
@@ -176,10 +181,10 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg">
+          <Reveal delay={150} className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg">
             {isSubmitted ? (
               <div className="py-12 text-center space-y-4">
                 <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto animate-bounce" />
@@ -275,7 +280,7 @@ const Contact = () => {
                 </button>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

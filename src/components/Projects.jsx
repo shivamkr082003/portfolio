@@ -1,5 +1,7 @@
 import React from "react";
 import { ExternalLink, Github } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 import drawImg from "../assets/draw.jpg";
 import aromaImg from "../assets/aroma.jpg";
 import brainlyImg from "../assets/brainly.jpg";
@@ -116,20 +118,21 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-slate-800">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A showcase of distributed systems, real-time microservices, and multi-agent GenAI architectures I've engineered.
-          </p>
-        </div>
+        <SectionHeading
+          index="03"
+          title="Work"
+          description={{
+            heading: "Featured Projects",
+            body: "A showcase of distributed systems, real-time microservices, and multi-agent GenAI architectures I've engineered.",
+          }}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <Reveal
               key={index}
-              className="group bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-gray-100 dark:border-slate-800"
+              delay={(index % 3) * 100}
+              className="group bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-gray-100 dark:border-slate-800 hover:border-blue-200 dark:hover:border-blue-900/60"
             >
               <div>
                 <div className="relative overflow-hidden h-48 bg-slate-200 dark:bg-slate-800">
@@ -186,11 +189,11 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <Reveal className="text-center mt-12">
           <a
             href="https://github.com/shivamkr082003"
             target="_blank"
@@ -200,7 +203,7 @@ const Projects = () => {
             <Github className="w-5 h-5 mr-2" />
             View All Projects on GitHub
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

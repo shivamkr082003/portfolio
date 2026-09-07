@@ -1,5 +1,7 @@
 import React from "react";
 import { Briefcase, GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const Experience = () => {
   const experiences = [
@@ -86,14 +88,14 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Experience & Education
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            My professional journey, academic background, and competitive programming milestones.
-          </p>
-        </div>
+        <SectionHeading
+          index="02"
+          title="Journey"
+          description={{
+            heading: "Experience & Education",
+            body: "My professional journey, academic background, and competitive programming milestones.",
+          }}
+        />
 
         {/* Experience Section */}
         <div className="mb-16">
@@ -101,16 +103,20 @@ const Experience = () => {
             <div className="p-3 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
               <Briefcase className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+            <h3
+              style={{ fontFamily: "var(--font-display)" }}
+              className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"
+            >
               Work Experience
             </h3>
           </div>
 
           <div className="space-y-8">
             {experiences.map((exp, idx) => (
-              <div
+              <Reveal
                 key={idx}
-                className="bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 dark:border-slate-700/60"
+                delay={idx * 100}
+                className="bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 dark:border-slate-700/60 hover:border-blue-200 dark:hover:border-blue-900/60 transition-colors duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                   <div>
@@ -152,7 +158,7 @@ const Experience = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -165,13 +171,16 @@ const Experience = () => {
               <div className="p-3 bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 rounded-xl">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+              <h3
+                style={{ fontFamily: "var(--font-display)" }}
+                className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"
+              >
                 Education
               </h3>
             </div>
 
             {education.map((edu, idx) => (
-              <div
+              <Reveal
                 key={idx}
                 className="bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 dark:border-slate-700/60 h-full flex flex-col justify-between"
               >
@@ -210,7 +219,7 @@ const Experience = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -220,16 +229,20 @@ const Experience = () => {
               <div className="p-3 bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 rounded-xl">
                 <Trophy className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+              <h3
+                style={{ fontFamily: "var(--font-display)" }}
+                className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"
+              >
                 Achievements & Honors
               </h3>
             </div>
 
             <div className="space-y-4 mb-8">
               {achievements.map((ach, idx) => (
-                <div
+                <Reveal
                   key={idx}
-                  className="bg-gray-50 dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-slate-700/60"
+                  delay={idx * 80}
+                  className="bg-gray-50 dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-slate-700/60 hover:-translate-y-0.5 transition-transform duration-300"
                 >
                   <div className="flex items-start justify-between gap-2 mb-1">
                     <h4 className="font-bold text-gray-900 dark:text-white">
@@ -242,7 +255,7 @@ const Experience = () => {
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     {ach.description}
                   </p>
-                </div>
+                </Reveal>
               ))}
             </div>
 
