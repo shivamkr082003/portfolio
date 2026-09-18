@@ -7,7 +7,7 @@ import {
   DownloadCloud,
 } from "lucide-react";
 
-const RESUME_URL = "https://drive.google.com/file/d/19ny5mWHnDgJdUXM0kY9wgr8PXt7pRrvu/view?usp=drivesdk";
+const RESUME_URL ="https://drive.google.com/file/d/1KM2QgmJiL9clufuAEmRjfyaD_-lp7_e9/view?usp=drivesdk" ;
 const NAME = "Shivam Kumar";
 const TYPING_SPEED = 120;
 const ERASING_SPEED = 60;
