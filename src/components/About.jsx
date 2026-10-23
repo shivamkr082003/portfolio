@@ -1,177 +1,221 @@
 import React from "react";
-import { Code2, Database, Bot, Cloud, Terminal, Cpu, Sparkles } from "lucide-react";
+import { Code2, Database, Bot, Cloud, Radio, Network, Rocket, MapPin, GraduationCap } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import Spotlight from "./Spotlight";
+
+const skillCategories = [
+  {
+    icon: Bot,
+    title: "AI & Generative Systems",
+    gradient: "from-violet-500 to-fuchsia-500",
+    skills: [
+      "LangGraph",
+      "LangChain",
+      "RAG Pipelines",
+      "Multi-Agent DAGs",
+      "MCP",
+      "Qdrant / ChromaDB / Pinecone",
+      "Deepgram Nova-2 (STT/TTS)",
+      "OpenAI API",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Backend & Systems",
+    gradient: "from-fuchsia-500 to-pink-500",
+    skills: [
+      "Node.js",
+      "FastAPI",
+      "Express.js",
+      "WebSockets",
+      "Redis Pub/Sub & Caching",
+      "PostgreSQL & Prisma ORM",
+      "RESTful APIs",
+      "JWT & RBAC",
+    ],
+  },
+  {
+    icon: Code2,
+    title: "Frontend Engineering",
+    gradient: "from-pink-500 to-orange-500",
+    skills: [
+      "Next.js 14/15",
+      "React.js",
+      "TypeScript",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "HTML5 / Modern CSS",
+      "Responsive UI/UX",
+    ],
+  },
+  {
+    icon: Cloud,
+    title: "Cloud, DevOps & Tools",
+    gradient: "from-orange-500 to-amber-500",
+    skills: [
+      "Docker & Docker Compose",
+      "AWS Lightsail",
+      "GitHub Actions CI/CD",
+      "Vercel & Render",
+      "Git & GitHub",
+      "Postman & Linux",
+      "Turborepo Monorepos",
+    ],
+  },
+];
+
+const focusAreas = [
+  {
+    icon: Radio,
+    title: "Distributed & Real-Time Systems",
+    body: "Microservices, WebSockets, Redis Pub/Sub brokers with deduplication, and cache-aside patterns.",
+  },
+  {
+    icon: Network,
+    title: "Stateful GenAI & Agentic Workflows",
+    body: "Multi-agent orchestration DAGs, hybrid RAG pipelines, sub-second STT/TTS voice streams, and vector search.",
+  },
+  {
+    icon: Rocket,
+    title: "Production Engineering & DevOps",
+    body: "Docker containerization, automated GitHub Actions CI/CD pipelines, AWS Lightsail deployment, and telemetry.",
+  },
+];
+
+const languages = ["Python", "TypeScript", "JavaScript (ES6+)", "C", "C++", "SQL"];
 
 const About = () => {
-  const skillCategories = [
-    {
-      icon: <Bot className="w-7 h-7" />,
-      title: "AI & Generative Systems",
-      skills: [
-        "LangGraph",
-        "LangChain",
-        "RAG Pipelines",
-        "Multi-Agent DAGs",
-        "MCP",
-        "Qdrant / ChromaDB / Pinecone",
-        "Deepgram Nova-2 (STT/TTS)",
-        "OpenAI API",
-      ],
-      color: "from-purple-500 to-indigo-500",
-    },
-    {
-      icon: <Database className="w-7 h-7" />,
-      title: "Backend & Systems",
-      skills: [
-        "Node.js",
-        "FastAPI",
-        "Express.js",
-        "WebSockets",
-        "Redis Pub/Sub & Caching",
-        "PostgreSQL & Prisma ORM",
-        "RESTful APIs",
-        "JWT & RBAC",
-      ],
-      color: "from-emerald-500 to-teal-500",
-    },
-    {
-      icon: <Code2 className="w-7 h-7" />,
-      title: "Frontend Engineering",
-      skills: [
-        "Next.js 14/15",
-        "React.js",
-        "TypeScript",
-        "Redux Toolkit",
-        "Tailwind CSS",
-        "Shadcn UI",
-        "HTML5 / Modern CSS",
-        "Responsive UI/UX",
-      ],
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: <Cloud className="w-7 h-7" />,
-      title: "Cloud, DevOps & Tools",
-      skills: [
-        "Docker & Docker Compose",
-        "AWS Lightsail",
-        "GitHub Actions CI/CD",
-        "Vercel & Render",
-        "Git & GitHub",
-        "Postman & Linux",
-        "Turborepo Monorepos",
-      ],
-      color: "from-orange-500 to-rose-500",
-    },
-  ];
-
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-slate-800">
-      <div className="container mx-auto px-6">
+    <section id="about" className="relative py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
           index="01"
-          title="About"
-          description={{
-            heading: "About Me",
-            body: "Full-Stack & AI Engineer pursuing B.Tech in Computer Science and Engineering at IIIT Ranchi, passionate about building distributed real-time microservices, event-driven architectures, and stateful multi-agent GenAI systems.",
-          }}
+          title="About me"
+          heading="Engineering that"
+          accent="ships & scales."
+          body="Full-Stack & AI Engineer pursuing B.Tech in Computer Science at IIIT Ranchi — passionate about distributed real-time microservices, event-driven architectures, and stateful multi-agent GenAI systems."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          <Reveal>
-            <div className="bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 rounded-2xl p-1 shadow-xl">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8">
-                <h3
-                  style={{ fontFamily: "var(--font-display)" }}
-                  className="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                >
-                  My Engineering Journey
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  I specialize in architecting end-to-end full-stack applications with high-throughput backend services and modern AI workflows. From orchestrating multi-agent DAGs with persistent memory using LangGraph and FastAPI to engineering real-time collaborative canvases with Redis Pub/Sub deduplication and WebSockets, I love solving complex engineering challenges.
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  With a solid foundation in Data Structures & Algorithms (700+ problems solved across LeetCode, CodeChef, and GeeksforGeeks, and peak LeetCode 1687) and production internship experience at Sirhaana (Capsules AI) and Orion Eduverse, I prioritize writing clean, scalable, and type-safe code with automated CI/CD and containerization.
-                </p>
+        {/* Bento */}
+        <div className="grid gap-4 md:grid-cols-6">
+          <Reveal className="md:col-span-4">
+            <Spotlight className="h-full p-8 md:p-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gradient mb-6 inline-block">
+                My journey
+              </p>
+              <p className="text-2xl md:text-[1.75rem] font-semibold leading-[1.35] tracking-[-0.02em] text-fg">
+                I architect end-to-end products with high-throughput backends and
+                modern AI workflows — from{" "}
+                <span className="text-gradient">multi-agent DAGs with persistent memory</span>{" "}
+                to{" "}
+                <span className="text-gradient">real-time collaborative systems</span>{" "}
+                built on Redis and WebSockets.
+              </p>
+              <p className="mt-6 text-lg text-muted leading-relaxed">
+                A strong DSA foundation (700+ problems, peak LeetCode 1687) and
+                production internships at Sirhaana (Capsules AI) and Orion Eduverse
+                taught me to write clean, scalable, type-safe code — shipped with
+                CI/CD and containers.
+              </p>
+            </Spotlight>
+          </Reveal>
+
+          <Reveal delay={100} className="md:col-span-2">
+            <div className="relative h-full overflow-hidden rounded-3xl p-8 text-white bg-gradient-to-br from-violet-600 via-fuchsia-600 to-orange-500 shadow-[0_30px_80px_-30px_rgb(192_38_211/0.6)]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgb(255_255_255/0.35),transparent_55%)]" />
+              <div className="absolute inset-0 bg-dots opacity-30 [mask-image:linear-gradient(to_bottom,#000,transparent)]" />
+              <div className="relative flex h-full flex-col justify-between gap-12">
+                <div className="flex items-center gap-2 text-sm font-semibold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                  </span>
+                  Currently · Since Aug 2026
+                </div>
+                <div>
+                  <p className="text-3xl font-bold tracking-[-0.03em] leading-tight">
+                    Technical Intern, AI Systems
+                  </p>
+                  <p className="mt-2 text-lg font-medium text-white/85">@ Sirhaana (Capsules AI)</p>
+                </div>
               </div>
             </div>
           </Reveal>
-          <div className="space-y-6">
-            {[
-              {
-                color: "bg-blue-500",
-                title: "Distributed & Real-Time Systems",
-                body: "Microservices, WebSockets, Redis Pub/Sub brokers with deduplication, and cache-aside patterns.",
-              },
-              {
-                color: "bg-purple-500",
-                title: "Stateful GenAI & Agentic Workflows",
-                body: "Multi-agent orchestration DAGs, hybrid RAG pipelines, sub-second STT/TTS voice streams, and vector search.",
-              },
-              {
-                color: "bg-emerald-500",
-                title: "Production Engineering & DevOps",
-                body: "Docker containerization, automated GitHub Actions CI/CD pipelines, AWS Lightsail deployment, and telemetry.",
-              },
-            ].map((item, idx) => (
-              <Reveal key={item.title} delay={idx * 100}>
-                <div className="flex items-start space-x-4 p-4 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-gray-100 dark:border-slate-800 hover:border-blue-200 dark:hover:border-blue-900/60 hover:-translate-y-0.5 transition-all duration-300">
-                  <div
-                    className={`w-4 h-4 mt-1 ${item.color} rounded-full flex-shrink-0`}
-                  ></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
-                      {item.body}
-                    </p>
-                  </div>
+
+          {focusAreas.map((item, idx) => (
+            <Reveal key={item.title} delay={idx * 100} className="md:col-span-2">
+              <Spotlight className="h-full p-7">
+                <div className="grid place-items-center w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/20 to-accent-2/20 border border-line text-accent mb-6">
+                  <item.icon className="w-5 h-5" />
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <h4 className="text-xl font-bold tracking-[-0.02em] text-fg">{item.title}</h4>
+                <p className="mt-3 text-base text-muted leading-relaxed">{item.body}</p>
+              </Spotlight>
+            </Reveal>
+          ))}
+
+          <Reveal className="md:col-span-3">
+            <Spotlight className="h-full p-7 flex items-center gap-5">
+              <div className="grid place-items-center w-12 h-12 shrink-0 rounded-2xl bg-surface-2 border border-line text-fg">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-fg">IIIT Ranchi · CSE</p>
+                <p className="text-base text-muted">B.Tech 2023 – 2027 · CGPA 8.34</p>
+              </div>
+            </Spotlight>
+          </Reveal>
+          <Reveal delay={100} className="md:col-span-3">
+            <Spotlight className="h-full p-7 flex items-center gap-5">
+              <div className="grid place-items-center w-12 h-12 shrink-0 rounded-2xl bg-surface-2 border border-line text-fg">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-fg">Ranchi, Jharkhand</p>
+                <p className="text-base text-muted">India · Working remotely today</p>
+              </div>
+            </Spotlight>
+          </Reveal>
         </div>
 
-        {/* Technical Skills Categorized */}
-        <Reveal className="mb-8 text-center">
-          <h3
-            style={{ fontFamily: "var(--font-display)" }}
-            className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3"
-          >
-            Technical Arsenal
+        {/* Technical arsenal */}
+        <Reveal className="mt-28 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <h3 className="text-4xl md:text-5xl font-bold tracking-[-0.045em] text-fg">
+            Technical <span className="text-gradient">arsenal</span>
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base">
-            Languages: Python, TypeScript, JavaScript (ES6+), C, C++, SQL
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {languages.map((lang) => (
+              <span
+                key={lang}
+                className="text-sm font-semibold px-3.5 py-1.5 rounded-full border border-line-strong bg-surface text-fg"
+              >
+                {lang}
+              </span>
+            ))}
+          </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((cat, index) => (
-            <Reveal key={index} delay={index * 100}>
-              <div className="group bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between h-full">
-                <div>
-                  <div
-                    className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${cat.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    {cat.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-                    {cat.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {cat.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="px-2.5 py-1 text-xs rounded-md bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-200 border border-gray-200/60 dark:border-slate-700/60"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+            <Reveal key={cat.title} delay={index * 100}>
+              <Spotlight className="h-full p-7">
+                <div className={`grid place-items-center w-12 h-12 rounded-2xl bg-gradient-to-br ${cat.gradient} text-white shadow-lg mb-6`}>
+                  <cat.icon className="w-5 h-5" />
                 </div>
-              </div>
+                <h4 className="text-lg font-bold text-fg mb-5">{cat.title}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-sm font-medium px-3 py-1.5 rounded-lg bg-surface-2 text-muted border border-line"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </Spotlight>
             </Reveal>
           ))}
         </div>

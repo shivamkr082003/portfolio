@@ -1,35 +1,21 @@
 import React from "react";
 import Reveal from "./Reveal";
 
-const SectionHeading = ({ index, title, description, align = "center" }) => {
-  const isCenter = align === "center";
-
+const SectionHeading = ({ index, title, heading, accent, body }) => {
   return (
-    <Reveal
-      className={`mb-16 ${isCenter ? "text-center mx-auto" : ""} max-w-3xl`}
-    >
-      <div
-        className={`flex items-center gap-3 mb-4 ${
-          isCenter ? "justify-center" : ""
-        }`}
-      >
-        <span className="font-mono text-sm text-blue-600 dark:text-blue-400 tracking-wider">
-          {index}
-        </span>
-        <span className="h-px w-10 bg-gradient-to-r from-blue-500 to-purple-500" />
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-          {title}
-        </span>
+    <Reveal className="mb-14 md:mb-20 max-w-4xl">
+      <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-4 py-1.5 mb-7 text-sm font-medium text-muted">
+        <span className="text-gradient font-semibold">{index}</span>
+        <span className="h-3.5 w-px bg-line-strong" />
+        {title}
       </div>
-      <h2
-        style={{ fontFamily: "var(--font-display)" }}
-        className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-      >
-        {description.heading}
+      <h2 className="text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl font-bold tracking-[-0.045em] text-fg">
+        {heading}{" "}
+        {accent && <span className="text-gradient-animated">{accent}</span>}
       </h2>
-      {description.body && (
-        <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          {description.body}
+      {body && (
+        <p className="mt-6 max-w-2xl text-lg md:text-xl text-muted leading-relaxed">
+          {body}
         </p>
       )}
     </Reveal>

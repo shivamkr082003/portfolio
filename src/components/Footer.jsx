@@ -1,31 +1,50 @@
 import React from "react";
-import { Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+
+const links = [
+  { name: "GitHub", url: "https://github.com/shivamkr082003" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/shivam-kumar-138924288/" },
+  { name: "LeetCode", url: "https://leetcode.com/u/66T5Eko6U6/" },
+  { name: "Email", url: "mailto:shivam6132@gmail.com" },
+];
 
 const Footer = () => {
   return (
-    <footer className="relative bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700">
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-        <button
-          onClick={() =>
-            document.querySelector("#home")?.scrollIntoView({ behavior: "smooth" })
-          }
-          aria-label="Back to top"
-          className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg flex items-center justify-center hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </button>
-      </div>
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 mb-4 md:mb-0">
-            <span>Made with</span>
-            <Heart className="w-5 h-5 text-red-500 fill-current" />
-            <span>by Shivam Kumar</span>
+    <footer className="relative border-t border-line overflow-hidden">
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {links.map((l) => (
+              <a
+                key={l.name}
+                href={l.url}
+                target={l.url.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="text-base font-medium text-muted hover:text-fg transition-colors"
+              >
+                {l.name}
+              </a>
+            ))}
           </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group inline-flex items-center gap-2 self-start rounded-full border border-line-strong px-4 py-2 text-sm text-fg hover:bg-surface-2 transition-colors"
+          >
+            Back to top
+            <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+          </button>
+        </div>
 
-          <div className="text-gray-500 dark:text-gray-400 text-sm">
-            © {new Date().getFullYear()} All rights reserved.
-          </div>
+        <div
+          aria-hidden="true"
+          className="mt-16 select-none text-center font-semibold tracking-[-0.06em] leading-[0.8] text-[19vw] md:text-[14rem] font-extrabold bg-gradient-to-b from-accent/40 via-accent-2/15 to-transparent bg-clip-text text-transparent"
+        >
+          Shivam
+        </div>
+
+        <div className="mt-8 flex flex-col sm:flex-row justify-between gap-2 text-sm text-subtle">
+          <span>© {new Date().getFullYear()} Shivam Kumar</span>
+          <span>Designed & engineered in Ranchi, India</span>
         </div>
       </div>
     </footer>
@@ -33,4 +52,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
